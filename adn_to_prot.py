@@ -21,7 +21,126 @@
 # Tyrosine
 # Valine
 # Nous allons utiliser le "tableau inverse" dans l'article de Wikipédia sur le code génétique
-ACIDES_AMINES = {}
+code_genetique ={
+    'S': 'Sérine',
+    'F': 'Phénylalanine',
+  'TTA':'L', # Leucine
+
+  'TTG':'L', # Leucine
+
+  'TAC':'Y', # Tyrosine
+
+  'TAT':'Y', # Tyrosine
+
+  'TAA':'*', # Codon Stop
+
+  'TAG':'*', # Codon Stop
+
+  'TGC':'C', # Cystéine
+
+  'TGT':'C', # Cystéine
+
+  'TGA':'*', # Codon Stop
+
+  'TGG':'W', # Tryptophane
+
+  'CTA':'L', # Leucine
+
+  'CTC':'L', # Leucine
+
+  'CTG':'L', # Leucine
+
+  'CTT':'L', # Leucine
+
+  'CCA':'P', # Proline
+
+  'CCC':'P', # Proline
+
+  'CCG':'P', # Proline
+
+  'CCT':'P', # Proline
+
+  'CAC':'H', # Histidine
+
+  'CAT':'H', # Histidine
+
+  'CAA':'Q', # Glutamine
+
+  'CAG':'Q', # Glutamine
+
+  'CGA':'R', # Arginine
+
+  'CGC':'R', # Arginine
+
+  'CGG':'R', # Arginine
+
+  'CGT':'R', # Arginine
+
+  'ATA':'I', # Isoleucine
+
+  'ATC':'I', # Isoleucine
+
+  'ATT':'I', # Isoleucine
+
+  'ATG':'M', # Méthionine
+
+  'ACA':'T', # Thréonine
+
+  'ACC':'T', # Thréonine
+
+  'ACG':'T', # Thréonine
+
+  'ACT':'T', # Thréonine
+
+  'AAC':'N', # Asparagine
+
+  'AAT':'N', # Asparagine
+
+  'AAA':'K', # Lysine
+
+  'AAG':'K', # Lysine
+
+  'AGC':'S', # Sérine
+
+  'AGT':'S', # Sérine
+
+  'AGA':'R', # Arginine
+
+  'AGG':'R', # Arginine
+
+  'GTA':'V', # Valine
+
+  'GTC':'V', # Valine
+
+  'GTG':'V', # Valine
+
+  'GTT':'V', # Valine
+
+  'GCA':'A', # Alanine
+
+  'GCC':'A', # Alanine
+
+  'GCG':'A', # Alanine
+
+  'GCT':'A', # Alanine
+
+  'GAC':'D', # Acide Aspartique
+
+  'GAT':'D', # Acide Aspartique
+
+  'GAA':'E', # Acide Glutamique
+
+  'GAG':'E', # Acide Glutamique
+
+  'GGA':'G', # Glycine
+
+  'GGC':'G', # Glycine
+
+  'GGG':'G', # Glycine
+
+  'GGT':'G', # Glycine
+  }
+
 
 # A - adénine | C - cytosine | G - guanine | T - thymine | U - uracile
 BASES = ('A', 'T', 'C', 'G', 'U')
@@ -50,6 +169,15 @@ def arn_m(adn, initial, final):
 
 print(f"L'arn messagé est :\n{arn_m(adn, 2, 13)}")
 
+acide_amine = "FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG"
 
 def traduction(arn_m):
-    pass
+    codon = 'AAU'
+    valeur_base = {'U': 0, 'C': 1, 'A': 2, 'G': 3}
+    index = valeur_base[codon[0]] * 16 + valeur_base[codon[1]] * 4 + valeur_base[codon[2]]
+    print(acide_amine[index])
+
+
+
+
+traduction('coucou')
