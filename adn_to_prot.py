@@ -39,7 +39,7 @@ def arn_m(adn, initial, final):
         C <-> G
     """
     sequence = adn[initial + 1: final + 2]
-    print(sequence)
+    #print(sequence)
     arn_m = [COMPLEMENT_DICO[b] if b != "A" else "U" for b in sequence]
     return arn_m
 
@@ -52,7 +52,7 @@ def arn_to_codons(arn):
         for j in range(3):
             codon.append(arn[i+j])
         liste_de_codons.append(codon)
-    print(f"La liste des condons est : {liste_de_codons}")
+    #print(f"La liste des condons est : {liste_de_codons}")
     return liste_de_codons
 
 def traduction(arn_m):
@@ -60,7 +60,7 @@ def traduction(arn_m):
     for codon in arn_m:
         valeur_base = {'U': 0, 'C': 1, 'A': 2, 'G': 3}
         index = valeur_base[codon[0]] * 16 + valeur_base[codon[1]] * 4 + valeur_base[codon[2]]
-        print(acide_amine[index], "-->", code_genetique[acide_amine[index]])
+        #print(acide_amine[index], "-->", code_genetique[acide_amine[index]])
         proteine.append(acide_amine[index])
     return proteine
 
@@ -80,8 +80,17 @@ print(traduction(arn_to_codons(arn_m(adn, 2, 13))))
 
 nombre_mutation = 0
 nombre_replication = 10000000
+reponse = traduction(arn_to_codons(arn_m(adn, 2, 13)))
 for i in range(nombre_replication):
+
     if adn != mutation(adn):
         nombre_mutation += 1
+        #print("MUTATION")
+    autrereponse = traduction(arn_to_codons(arn_m(adn, 2, 13)))
+    if autrereponse != reponse:
+        print("La mutation s'est répercutée sur la protéine")
+        print(reponse)
+        print(autrereponse)
+        break
 
 print(f"{nombre_mutation} pour {nombre_replication}")
